@@ -3,7 +3,6 @@ package com.guijas1.Fitrack.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.time.LocalDate;
 
 
@@ -16,5 +15,6 @@ public class RegistroFisico {
     private Double altura;
     private Double circunferenciaAbdominal;
     private LocalDate dataRegistro;
+
 
 }
