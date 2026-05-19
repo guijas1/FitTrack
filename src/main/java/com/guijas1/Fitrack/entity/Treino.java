@@ -1,8 +1,11 @@
 package com.guijas1.Fitrack.entity;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
-public class TreinoEntity {
+@Data
+public class Treino {
 
     private String treino;
     private String tipo;

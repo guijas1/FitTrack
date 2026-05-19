@@ -1,5 +1,9 @@
 package com.guijas1.Fitrack.entity;
 
+
+import lombok.Data;
+
+@Data
 public class Progresso {
 
     private String usuarioId;
