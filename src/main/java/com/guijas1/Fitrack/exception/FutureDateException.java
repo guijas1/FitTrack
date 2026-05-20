@@ -2,10 +2,10 @@ package com.guijas1.Fitrack.exception;
 
 import org.springframework.http.HttpStatus;
 
-public class FutereDateExeception extends RuntimeException {
+public class FutureDateException extends RuntimeException {
     private final HttpStatus status;
 
-    public FutereDateExeception(String message, HttpStatus status) {
+    public FutureDateException(String message, HttpStatus status) {
         super(message);
         this.status = status;
     }

@@ -1,8 +1,10 @@
 package com.guijas1.Fitrack.entity;
 
+import jakarta.persistence.Entity;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+
 
 @Data
 public class Treino {

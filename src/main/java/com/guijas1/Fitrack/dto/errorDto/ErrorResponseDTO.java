@@ -1,4 +1,10 @@
 package com.guijas1.Fitrack.dto.errorDto;
 
-public class ErrorResponseDTO {
+import java.time.LocalDateTime;
+
+public record ErrorResponseDTO(
+        String message,
+        int status,
+        LocalDateTime timestamp
+) {
 }

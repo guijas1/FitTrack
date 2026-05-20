@@ -1,6 +1,7 @@
 package com.guijas1.Fitrack.entity;
 
 
+import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
 import java.time.LocalDate;
