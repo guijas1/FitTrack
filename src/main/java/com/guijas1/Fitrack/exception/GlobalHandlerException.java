@@ -20,4 +20,15 @@ public class GlobalHandlerException {
 
            return ResponseEntity.status(ex.getStatus()).body(error);
     }
+
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity<ErrorResponseDTO> handleBadRequestException(BadRequestException ex){
+        ErrorResponseDTO error = new ErrorResponseDTO(
+                ex.getMessage(),
+                ex.getStatus().value(),
+                LocalDateTime.now()
+        );
+        return ResponseEntity.status(ex.getStatus()).body(error);
+    }
+
 }

@@ -14,7 +14,6 @@ public class RegistroFisicoMapper {
 
         RegistroFisico entidade = new RegistroFisico();
 
-        entidade.setId(dto.id());
         entidade.setAltura(dto.altura());
         entidade.setPeso(dto.peso());
         entidade.setDataRegistro(dto.dataRegistro());
@@ -29,7 +28,6 @@ public class RegistroFisicoMapper {
         }
 
         return new RegistroFisicoDTO(
-                entidade.getId(),
                 entidade.getPeso(),
                 entidade.getAltura(),
                 entidade.getCircunferenciaAbdominal(),

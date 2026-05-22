@@ -7,8 +7,7 @@ import jakarta.validation.constraints.Positive;
 import java.time.LocalDate;
 
 public record RegistroFisicoDTO(
-         @NotBlank
-         String id,
+
          @NotNull
          @Positive(message = "O valor do peso deve ser positivo.")
          Double peso,
@@ -21,6 +20,7 @@ public record RegistroFisicoDTO(
 
          LocalDate dataRegistro
 ) {
+
 
 
 }
