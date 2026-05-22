@@ -9,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.EmptyStackException;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -20,13 +23,21 @@ public class RegistroFisicoService {
         this.mapper = mapper;
     }
 
+    List<RegistroFisico> ls = new ArrayList<>();
+
     public RegistroFisico register(RegistroFisicoDTO dto) {
         validate(dto);
-
         RegistroFisico registro = mapper.toEntity(dto);
         registro.setId(UUID.randomUUID().toString());
-
+        ls.add(registro);
         return registro;
+    }
+
+    public List<RegistroFisico> listRegister(){
+        if(ls.isEmpty()){
+            throw new EmptyStackException();
+        }
+        return ls;
     }
 
     public RegistroFisicoDTO validate(RegistroFisicoDTO dto) {
