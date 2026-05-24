@@ -31,4 +31,15 @@ public class GlobalHandlerException {
         return ResponseEntity.status(ex.getStatus()).body(error);
     }
 
+    @ExceptionHandler(IdNotFoundException.class)
+    public ResponseEntity<ErrorResponseDTO> handleIdNotFoundException(IdNotFoundException ex){
+        ErrorResponseDTO error = new ErrorResponseDTO(
+                ex.getMessage(),
+                ex.getStatus().value(),
+                LocalDateTime.now()
+        );
+
+        return ResponseEntity.status(ex.getStatus()).body(error);
+    }
+
 }

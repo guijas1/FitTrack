@@ -30,5 +30,9 @@ public class RegistroController {
         return ResponseEntity.ok(service.listRegister());
     }
 
-
+    @GetMapping("/list/{id}")
+    public ResponseEntity<RegistroFisico> findById(@RequestBody @PathVariable String id){
+        return ResponseEntity.ok(service.findById(id));
+    }
+    
 }

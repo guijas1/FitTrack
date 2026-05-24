@@ -4,6 +4,7 @@ import com.guijas1.Fitrack.dto.RegistroFisicoDTO;
 import com.guijas1.Fitrack.entity.RegistroFisico;
 import com.guijas1.Fitrack.exception.BadRequestException;
 import com.guijas1.Fitrack.exception.FutureDateException;
+import com.guijas1.Fitrack.exception.IdNotFoundException;
 import com.guijas1.Fitrack.mapper.RegistroFisicoMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -66,5 +67,13 @@ public class RegistroFisicoService {
         }
 
         return dto;
+    }
+    public RegistroFisico findById(String id){
+        RegistroFisico rg = new RegistroFisico();
+        if(ls.isEmpty()){
+            throw new EmptyStackException();
+        }
+        return  ls.stream().filter(ls -> ls.getId().equals(id)).findFirst().orElseThrow(() -> new IdNotFoundException("REGISTRO NÃO ENCONTRADO", HttpStatus.NOT_FOUND));
+
     }
 }
