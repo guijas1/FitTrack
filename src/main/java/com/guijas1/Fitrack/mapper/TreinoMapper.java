@@ -7,37 +7,31 @@ import org.springframework.stereotype.Component;
 @Component
 public class TreinoMapper {
 
-    public Treino toEntity(TreinoDTO dto){
-        if(dto == null){
+    public Treino toEntity(TreinoDTO dto) {
+        if (dto == null) {
             return null;
         }
+
         Treino treino = new Treino();
 
-        treino.setTreino(dto.treino());
         treino.setTipo(dto.tipo());
         treino.setDuracaoMinutos(dto.duracaoMinutos());
-        treino.setCaloriaGastas(dto.caloriaGastas());
+        treino.setCaloriasGastas(dto.caloriasGastas());
         treino.setDataHora(dto.dataHora());
 
         return treino;
     }
 
-    public TreinoDTO toDTO(Treino treino){
-
-        if(
-                treino == null
-        ){
+    public TreinoDTO toDTO(Treino treino) {
+        if (treino == null) {
             return null;
         }
 
-        TreinoDTO dto = new TreinoDTO(
-                treino.getTreino(),
+        return new TreinoDTO(
                 treino.getTipo(),
                 treino.getDuracaoMinutos(),
-                treino.getCaloriaGastas(),
+                treino.getCaloriasGastas(),
                 treino.getDataHora()
-                );
-        return dto;
+        );
     }
-
 }

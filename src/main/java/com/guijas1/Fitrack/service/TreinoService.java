@@ -34,18 +34,28 @@ public class TreinoService {
         this.mapper = mapper;
     }
 
-    public Treino createTreino(TreinoDTO dto) {
-        validateTreino(dto);
+    public Treino createTreino(String usuarioId, TreinoDTO dto) {
+        validateTreino(usuarioId, dto);
 
         Treino treino = mapper.toEntity(dto);
-        treino.setID(UUID.randomUUID().toString());
+
+        treino.setId(UUID.randomUUID().toString());
+        treino.setUsuarioId(usuarioId);
+        treino.setTipo(dto.tipo().trim().toUpperCase());
 
         treinos.add(treino);
 
         return treino;
     }
 
-    public TreinoDTO validateTreino(TreinoDTO dto) {
+    public TreinoDTO validateTreino(String usuarioId, TreinoDTO dto) {
+        if (usuarioId == null || usuarioId.isBlank()) {
+            throw new BadRequestException(
+                    "Usuário é obrigatório",
+                    HttpStatus.UNPROCESSABLE_ENTITY
+            );
+        }
+
         if (dto == null) {
             throw new BadRequestException("Payload vazio", HttpStatus.BAD_REQUEST);
         }
@@ -73,7 +83,7 @@ public class TreinoService {
             );
         }
 
-        if (dto.caloriaGastas() == null || dto.caloriaGastas() < 0) {
+        if (dto.caloriasGastas() == null || dto.caloriasGastas() < 0) {
             throw new BadRequestException(
                     "Calorias gastas não podem ser negativas",
                     HttpStatus.UNPROCESSABLE_ENTITY
