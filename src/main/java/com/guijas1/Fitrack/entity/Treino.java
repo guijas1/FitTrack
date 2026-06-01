@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Data
 public class Treino {
 
+    private String ID;
     private String treino;
     private String tipo;
     private Integer duracaoMinutos;
