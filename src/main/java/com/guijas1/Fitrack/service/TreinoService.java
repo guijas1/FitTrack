@@ -18,6 +18,8 @@ public class TreinoService {
 
     public Treino createTreino(TreinoDTO dto){
 
+
+
         return treino;
     }
 
